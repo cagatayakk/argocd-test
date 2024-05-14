@@ -18,3 +18,8 @@ We'll look at secret for the UI password.
 ```
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 ```
+Port-Forward for Argo UI
+
+```
+kubectl port-forward -n argocd service/argocd-server 8080:80
+```
