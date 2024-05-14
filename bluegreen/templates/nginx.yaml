@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-blue
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-world
+      color: blue
+  template:
+    metadata:
+      labels:
+        app: hello-world
+        color: blue
+    spec:
+      containers:
+        - name: hello-world
+          image: nginx
+          ports:
+            - containerPort: 80
