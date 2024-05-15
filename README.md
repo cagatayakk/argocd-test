@@ -16,6 +16,7 @@ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
 We'll look at secret for the UI password.
 
 ```
+# username: admin
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 ```
 Port-Forward for Argo UI
